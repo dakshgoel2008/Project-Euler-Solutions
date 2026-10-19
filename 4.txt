@@ -1,0 +1,43 @@
+// OPTIMIZED:
+
+/*
+Logic: 6 digit palindromic no = abccba
+ie. 100000a+10000b+1000c+100c+10b+a = 100001a+10010b+1100c
+these all are divisible by 11 -> ie. abccba % 11 == 0 always (ATQ)
+*/ 
+void solve(){
+    ll ans=0;
+    auto valid=[&](ll k){
+        string s=to_string(k);
+        string t=s;
+        reverse(t.begin(),t.end());
+        return s==t;
+    };
+    for(int i=999;i>=100;--i){
+        int st=(i%11==0?999:990);   // if i is divisible by 11 then j can start with any number else start with largest no. divisible by 11
+        int k=(i%11==0?1:11);   // step should be likewise
+        for(int j=st;j>=i;j-=k){
+            ll p=i*j;
+            if(valid(p))ans=max(ans,p);
+        }
+    }
+    cout<<ans<<endl;
+}
+
+// BRUTE FORCE:
+void solve(){
+    ll ans=0;
+    auto valid=[&](ll k){
+        string s=to_string(k);
+        string t=s;
+        reverse(t.begin(),t.end());
+        return s==t;
+    };
+    for(int i=100;i<=999;++i){
+        for(int j=100;j<=999;++j){
+            ll p=i*j;
+            if(valid(p))ans=max(ans,p);
+        }
+    }
+    cout<<ans<<endl;
+}
