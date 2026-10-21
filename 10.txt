@@ -1,0 +1,15 @@
+void solve(){
+    int n=2000000;
+    vector<int>spf(n+1,0);
+    iota(all(spf),0);
+    for(int i=2;i*i<=n;++i){
+        if(spf[i]==i){
+            for(int j=i*i;j<=n;j+=i)spf[j]=i;
+        }
+    }
+    ll sum=0;
+    for(int i=2;i<=n;++i){
+        if(spf[i]==i)sum+=i;
+    }
+    cout<<sum<<endl;
+}
