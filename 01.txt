@@ -1,3 +1,7 @@
+/**
+    author:  UG_BEAST
+**/
+
 void solve() {
     ll sum = 0;
 

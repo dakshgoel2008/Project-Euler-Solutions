@@ -1,3 +1,7 @@
+/**
+    author:  UG_BEAST
+**/
+
 void solve(){
     ll n=600851475143;
     vector<ll>p;

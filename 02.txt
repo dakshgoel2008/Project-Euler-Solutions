@@ -1,3 +1,7 @@
+/**
+    author:  UG_BEAST
+**/
+
 void solve() {
     ull sum=0;
     ull p2=0,p1=1;

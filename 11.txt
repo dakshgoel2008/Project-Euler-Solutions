@@ -1,0 +1,50 @@
+/**
+    author:  UG_BEAST
+**/
+
+void solve() {
+    int a[20][20];
+    fr(i,20){
+        fr(j,20){
+            cin>>a[i][j];
+        }
+    }
+    ll maxi=0;
+    fr(i,20){
+        fr(j,20){
+            fr(d,8){
+                ll ans=a[i][j];
+                bool hai=true;
+                for(int k=1;k<=3;++k){
+                    int ni=i+(dx[d]*k);
+                    int nj=j+(dy[d]*k);
+                    if(ni<20&&nj<20&&ni>=0&&nj>=0){
+                        ans*=a[ni][nj];
+                    }else {
+                        hai=false;
+                        break;
+                    }
+                }
+                if(hai)maxi=max(ans,maxi);
+            }
+        }
+    }
+    cout<<maxi<<endl;
+}
+
+int main() {
+    fastio();
+#ifndef ONLINE_JUDGE
+    freopen("Error.txt", "w", stderr);
+    freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+#endif
+
+    int t = 1;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+    
