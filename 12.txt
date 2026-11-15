@@ -1,0 +1,39 @@
+/**
+    author:  UG_BEAST
+**/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    auto f=[&](int k){
+        int cnt=0;
+        for(int i=1;i*i<=k;++i){
+            if(k%i==0){
+                cnt+=2;
+                if(i*i==k)cnt--;
+            }
+        }
+        return cnt;
+    };
+    int n=1;
+    int cnt=0;
+    while(1){
+        if(n%2==0){
+            cnt=f(n/2)*f(n+1);
+        }else cnt=f(n)*f((n+1)/2);
+        if(cnt>500)break;
+        n++;
+    }
+    cout<<(n*(n+1))/2<<endl;
+}
+
+int main() {
+    int t = 1;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+    
