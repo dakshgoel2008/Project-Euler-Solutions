@@ -1,0 +1,32 @@
+/**
+    author:  UG_BEAST
+**/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+#define fr(i, n) for (ll i = 0; i < n; ++i)
+
+void solve() {
+    vector<string>a(100);
+    fr(i,100)cin>>a[i];
+    ll sum=0;
+
+    for(auto i:a){
+        string t=i.substr(0,14);
+        sum+=stoll(t);
+    }
+    string t=to_string(sum);
+    cout<<t.substr(0,10)<<endl;
+}
+
+int main() {
+    int t = 1;
+    while (t--) {
+        solve();
+    }
+
+    return 0;
+}
+    
