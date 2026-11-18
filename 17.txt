@@ -1,0 +1,15 @@
+void solve(){
+    int ones=36;      // 1-9
+    int tens=46;      // 20,30,40...90
+    int _10_19=70;       // 10,11....19
+
+    // 1 to 99
+    int _1_99=_10_19+ones*9 /*1-9, 21-29, 31-39, ..... 91-99 each 1-9 is 9 times*/ + tens*10 /*20-29, 30-39......90-99 each 10 times*/;
+
+    // 100 to 999
+    int hun=7*900;
+    int ands=3*891;
+    int pre_ones=ones*100;
+    int rep_1_99=9*_1_99;
+    cout<<hun+ands+pre_ones+rep_1_99+_1_99+11 /*one thousand*/;
+}
