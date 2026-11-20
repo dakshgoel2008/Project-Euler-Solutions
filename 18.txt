@@ -1,0 +1,24 @@
+void solve(){
+    int n=15;
+    vector<vector<int>>a(n,vector<int>(n));
+    fr(i,n){
+        for(int j=0;j<=i;++j)cin>>a[i][j];
+    }
+    int dp[15][15];
+    memset(dp,-1,sizeof(dp));
+    function<int(int,int)>f=[&](int r,int c){
+        if(c>r||r<0||c<0)return -100000;
+        if(r==0&&c==0)return a[0][0];
+        if(dp[r][c]==-1){
+            int ans=0;
+            ans=a[r][c]+max(f(r-1,c-1),f(r-1,c));
+            dp[r][c]=ans;
+        }
+        return dp[r][c];
+    };
+    int ans=0;
+    for(int c=0;c<15;++c){
+        ans=max(ans,f(14,c));
+    }
+    cout<<ans<<endl;
+}
